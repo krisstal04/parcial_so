@@ -1,0 +1,341 @@
+/* Aplicaciones de escritorio */
+/* Identidades de los cinco sitios locales. */
+.ff-site { min-height: 100%; font: 14px/1.7 Arial, sans-serif; color: #293039; overflow-wrap: anywhere; }
+.ff-site * { box-sizing: border-box; }
+.ff-site h1 { font-size: 32px; line-height: 1.22; margin: 12px 0 22px; }
+.ff-site h2 { font-size: 21px; line-height: 1.4; margin: 28px 0 12px; }
+.ff-site p { margin: 12px 0; }
+.ff-site a { color: #285da3; text-decoration: none; }
+.ff-site a:hover { text-decoration: underline; }
+.ff-site section { scroll-margin-top: 16px; }
+.ff-site article, .ff-site main, .ff-site aside { min-width: 0; }
+.ff-site small, .ff-muted { font-size: 12px; color: #68717a; }
+.ff-site details { margin: 22px 0; padding: 16px 18px; border: 1px solid #dfe3e5; border-radius: 6px; }
+.ff-site summary { cursor: pointer; font-weight: 600; }
+.ff-eyebrow { font-size: 11px; letter-spacing: 1.3px; color: #66736e; font-weight: 600; }
+.ff-related { clear: both; border-top: 1px solid #e0e4e7; margin-top: 30px; padding-top: 4px; }
+.ff-related a { display: block; padding: 9px 0; line-height: 1.5; }
+.ff-related a span { opacity: .6; }
+.ff-wiki-masthead { display: flex; align-items: center; gap: 12px; padding: 20px 28px; border-bottom: 1px solid #c8ccd1; }
+.ff-wiki-mark svg { width: 42px; height: 42px; color: #636f7a; }
+.ff-wiki-masthead b { font: 25px Georgia, serif; }
+.ff-wiki-masthead small { display: block; font-size: 11px; }
+.ff-wiki-grid { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 30px; padding: 26px; }
+.ff-wiki-index { padding: 14px 14px 0 0; border-right: 1px solid #eaecf0; font-size: 12px; }
+.ff-wiki-index a { display: block; margin-top: 14px; }
+.ff-wiki h1 { font: 32px/1.2 Georgia, serif; margin-bottom: 15px; }
+.ff-wiki h2 { font-family: Georgia, serif; font-weight: 400; border-bottom: 1px solid #c8ccd1; padding-bottom: 6px; }
+.ff-wiki-tabs { display: flex; justify-content: space-between; border-block: 1px solid #c8ccd1; padding: 7px 0; font-size: 12px; }
+.ff-wiki-facts { float: right; width: 210px; margin: 18px 0 18px 22px; padding: 12px; background: #f8f9fa; border: 1px solid #c8ccd1; font-size: 12px; }
+.ff-wiki-facts > b { display: block; text-align: center; margin-bottom: 10px; }
+.ff-wiki-facts svg { width: 100%; display: block; }
+.ff-wiki-facts dl { display: grid; grid-template-columns: 65px 1fr; gap: 10px; margin: 12px 0 0; }
+.ff-wiki-facts dt { font-weight: bold; }
+.ff-wiki-facts dd { margin: 0; }
+.ff-wiki ul { padding-left: 20px; }
+.ff-blog { background: #fcfbf7; color: #292d29; }
+.ff-blog-masthead { display: flex; justify-content: space-between; align-items: center; gap: 20px; border-bottom: 1px solid #dedfd7; padding: 18px 32px; }
+.ff-blog-masthead b { font: bold 29px Georgia, serif; letter-spacing: -1px; }
+.ff-blog-masthead b span { color: #487254; }
+.ff-blog-masthead > span { font-size: 11px; color: #657064; }
+.ff-blog-story { max-width: 700px; padding: 36px 36px 48px; margin: auto; }
+.ff-blog h1 { font: 42px/1.12 Georgia, serif; letter-spacing: -1px; }
+.ff-blog-deck { font-size: 18px; color: #72776d; }
+.ff-byline { display: flex; gap: 10px; align-items: center; margin: 24px 0; font-size: 12px; }
+.ff-byline svg { width: 38px; height: 38px; flex-shrink: 0; }
+.ff-byline small { display: block; }
+.ff-blog figure { margin: 26px 0; }
+.ff-blog figure svg { display: block; width: 100%; max-height: 265px; background: #eaf0e9; border-radius: 8px; }
+.ff-blog figcaption { margin-top: 8px; font-size: 11px; color: #777e73; text-align: center; }
+.ff-blog-story > p:not(.ff-eyebrow):not(.ff-blog-deck) { font: 18px/1.9 Georgia, serif; }
+.ff-blog blockquote { font: italic 24px/1.5 Georgia, serif; border-left: 3px solid #799781; padding-left: 24px; margin: 30px 0; color: #486450; }
+.ff-blog h2 { font-family: Georgia, serif; font-size: 25px; }
+.ff-shop { color: #403b33; background: #fffefd; }
+.ff-shop-masthead { display: flex; justify-content: space-between; gap: 20px; padding: 24px 30px; border-bottom: 1px solid #e6e0d5; }
+.ff-shop-masthead > b { font-size: 20px; letter-spacing: -.5px; }
+.ff-shop-masthead > span { font-size: 12px; }
+#ff-cart-count { display: inline-grid; place-items: center; min-width: 24px; border-radius: 50%; background: #eee7dc; }
+.ff-shop .ff-shop-breadcrumb { padding: 16px 30px 0; color: #827665; font-size: 11px; }
+.ff-product { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; padding: 26px 30px; }
+.ff-product-picture { display: flex; flex-direction: column; justify-content: center; background: #f1eadf; border-radius: 8px; padding: 20px; align-self: start; min-height: 360px; }
+.ff-product-picture svg { display: block; width: 100%; }
+.ff-product-picture > span { text-align: center; color: #928068; font-size: 10px; letter-spacing: 2px; }
+.ff-shop h1 { font: 30px/1.2 Georgia, serif; }
+.ff-product-subtitle { color: #847666; }
+.ff-shop .ff-price { font-size: 28px; margin: 20px 0; }
+.ff-price small { display: block; font-size: 11px; }
+.ff-product-features { padding-left: 18px; font-size: 12px; line-height: 2; }
+.ff-cart-button { width: 100%; margin-top: 20px; padding: 13px; border: 0; border-radius: 5px; background: #4b574a; color: white; }
+.ff-cart-button:disabled { background: #e4eadf; color: #4b574a; cursor: default; }
+.ff-shop-details { padding: 0 30px 32px; }
+.ff-product-cards { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+.ff-product-cards article { background: #f7f4ef; border: 1px solid #ebe5db; border-radius: 8px; padding: 20px; font-size: 13px; }
+.ff-product-cards b { font-size: 12px; color: #74614a; }
+.ff-docs { color: #30313c; }
+.ff-docs-masthead { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 26px; border-bottom: 1px solid #e2dfeb; }
+.ff-docs-masthead b { font-size: 19px; }
+.ff-docs-masthead b span { font-family: monospace; color: #8058b6; margin-right: 7px; }
+.ff-docs-masthead > span { color: #797082; font-size: 11px; }
+.ff-docs-grid { display: grid; grid-template-columns: 190px minmax(0,1fr); }
+.ff-docs-menu { background: #f8f7fb; border-right: 1px solid #e5e2ec; padding: 28px 14px; }
+.ff-docs-menu small { display: block; font-size: 10px; margin: 0 10px 18px; letter-spacing: .6px; }
+.ff-docs-menu a { display: block; padding: 9px 10px; margin-bottom: 5px; font-size: 12px; color: #625d71; border-radius: 5px; }
+.ff-docs-menu .ff-docs-selected { background: #eae3f6; color: #664699; }
+.ff-docs-grid > article { padding: 28px 32px 40px; }
+.ff-docs h1 { font-size: 30px; letter-spacing: -.6px; }
+.ff-docs-lead { font-size: 17px; color: #797382; }
+.ff-docs-note { background: #f3effb; border-left: 3px solid #9473c2; padding: 14px 18px; margin: 22px 0; font-size: 13px; }
+.ff-docs-note p { margin-bottom: 0; }
+.ff-docs-example { border: 1px solid #dedde5; border-radius: 6px; background: #f7f7fa; overflow: hidden; }
+.ff-docs-example > span { display: block; border-bottom: 1px solid #dedde5; font-size: 10px; padding: 8px 14px; color: #777080; }
+.ff-docs-example pre { margin: 0; padding: 18px 14px; overflow-x: auto; font: 12px/2 monospace; white-space: pre-wrap; }
+.ff-docs-check { display: flex; align-items: baseline; gap: 10px; padding: 12px 0; }
+.ff-docs-check input { accent-color: #8058b6; }
+.ff-forum { background: #f5f7f8; }
+.ff-forum-masthead { display: flex; justify-content: space-between; gap: 18px; align-items: center; padding: 20px 28px; background: white; border-bottom: 1px solid #dce3e6; }
+.ff-forum-masthead b { display: flex; align-items: center; gap: 9px; font-size: 20px; }
+.ff-forum-masthead svg { width: 25px; height: 25px; color: #457f8b; }
+.ff-forum-masthead > span { font-size: 11px; color: #7c8589; }
+.ff-forum-grid { display: grid; grid-template-columns: minmax(0,1fr) 210px; gap: 24px; padding: 28px; }
+.ff-forum h1 { font-size: 27px; }
+.ff-forum-meta { color: #738088; font-size: 12px; }
+.ff-question, .ff-answer { background: white; border: 1px solid #dfe5e7; border-radius: 7px; padding: 22px; margin: 18px 0; }
+.ff-forum-user { display: flex; gap: 9px; align-items: center; font-size: 12px; flex-wrap: wrap; }
+.ff-forum-user > small { margin-left: auto; }
+.ff-avatar { display: grid; place-items: center; width: 30px; height: 30px; background: #eaf1f4; border-radius: 50%; color: #477582; }
+.ff-avatar svg { width: 18px; height: 18px; }
+.ff-tag { display: inline-block; padding: 3px 8px; background: #edf3f6; color: #53758b; font-size: 10px; border-radius: 4px; margin: 8px 7px 0 0; }
+.ff-forum .ff-answers-title { font-size: 17px; margin-top: 28px; }
+.ff-accepted { border-left: 3px solid #639875; }
+.ff-accepted-label { color: #46805b; font-size: 11px; font-weight: bold; }
+.ff-forum-about { background: #eaf1f2; border: 1px solid #d9e5e7; border-radius: 6px; padding: 18px; font-size: 12px; }
+.ff-forum-about > div { display: flex; justify-content: space-between; border-top: 1px solid #d3dfe1; padding-top: 14px; font-size: 22px; line-height: 1.3; }
+.ff-forum-about small { font-size: 9px; }
+.ff-forum-grid > aside { padding-top: 10px; }
+.ff-forum-grid > aside h2 { font-size: 15px; }
+.ff-forum-grid > aside a { font-size: 12px; }
+.firefox-site-icon-4 { background: #e8f1f4; border-color: #d2e5eb; color: #387686; }
+@container (max-width: 760px) {
+  .ff-wiki-grid { grid-template-columns: 115px minmax(0,1fr); gap: 18px; padding: 20px; }
+  .ff-wiki-facts { float: none; width: 100%; margin: 18px 0; }
+  .ff-wiki-facts svg { max-height: 150px; }
+  .ff-docs-grid { grid-template-columns: 150px minmax(0,1fr); }
+  .ff-docs-grid > article { padding: 24px 20px; }
+  .ff-forum-grid { grid-template-columns: minmax(0,1fr); }
+  .ff-product { gap: 22px; padding: 22px; }
+  .ff-product-picture { min-height: 260px; }
+  .ff-product-cards { grid-template-columns: 1fr; }
+}
+@container (max-width: 520px) {
+  .ff-wiki-grid, .ff-docs-grid, .ff-product { grid-template-columns: minmax(0,1fr); }
+  .ff-wiki-index, .ff-docs-menu { border: 0; border-bottom: 1px solid #e1e3e6; padding: 12px; }
+  .ff-wiki-index a { display: inline-block; margin: 6px 10px 6px 0; }
+  .ff-docs-menu a { display: inline-block; margin: 2px; }
+  .ff-docs-menu small { margin-bottom: 8px; }
+  .ff-blog-story { padding: 26px 20px; }
+  .ff-blog h1 { font-size: 33px; }
+  .ff-blog-masthead > span, .ff-docs-masthead > span, .ff-forum-masthead > span { display: none; }
+  .ff-forum-grid { padding: 20px; }
+  .ff-site h1 { overflow-wrap: anywhere; }
+}
+/* Búsqueda y documentos locales de Firefox. */
+.firefox-page.firefox-browsing { max-width: none; min-height: 100%; padding: 0; background: #fff; color: #202124; }
+.firefox-results-header { display: flex; align-items: center; gap: 24px; padding: 24px 30px 18px; }
+.firefox-search-logo { display: flex; align-items: center; gap: 8px; font-size: 22px; white-space: nowrap; }
+.firefox-search-logo img { width: 30px; height: 30px; }
+.firefox-results-header .firefox-search { flex: 1; max-width: 640px; border-radius: 28px; box-shadow: 0 2px 8px #20212415; }
+.firefox-results-tabs { display: flex; align-items: center; justify-content: space-between; padding: 0 30px; border-bottom: 1px solid #e5e7eb; color: #70757a; }
+.firefox-results-tabs > span { padding: 10px 0; border-bottom: 3px solid #1a73e8; color: #1a73e8; }
+.firefox-result-list { padding: 28px 34px; max-width: 760px; }
+.firefox-result { margin-bottom: 30px; }
+.firefox-result a { text-decoration: none; color: #1a0dab; }
+.firefox-result a:hover h2 { text-decoration: underline; }
+.firefox-result-site { display: flex; gap: 10px; align-items: center; color: #202124; font-size: 13px; }
+.firefox-site-icon { display: grid; place-items: center; border: 1px solid #dadce0; border-radius: 50%; background: #f1f3f4; width: 30px; height: 30px; flex-shrink: 0; color: #40638b; }
+.firefox-site-icon svg { display: block; width: 20px; height: 20px; }
+.firefox-site-icon-0 { background: #eaf2ff; border-color: #d7e6fd; color: #2766b7; }
+.firefox-site-icon-1 { background: #e6f5ef; border-color: #cde9dd; color: #21815a; }
+.firefox-site-icon-2 { background: #fff3df; border-color: #f4e2bf; color: #ac6c15; }
+.firefox-site-icon-3 { background: #f0eaff; border-color: #e1d6f6; color: #8052ba; }
+.firefox-result-site small { display: block; font-size: 11px; color: #5f6368; margin-top: 3px; overflow-wrap: anywhere; }
+.firefox-result h2 { font-size: 20px; font-weight: 400; margin: 9px 0 6px; }
+.firefox-result p { color: #4d5156; font-size: 14px; line-height: 1.6; margin: 0; }
+@container (max-width: 600px) {
+  .firefox-results-header { padding: 18px; gap: 12px; flex-wrap: wrap; }
+  .firefox-results-header .firefox-search { flex-basis: 100%; }
+  .firefox-result-list { padding: 24px 18px; }
+}
+.modern-app { min-height: 0; color: #243247; }
+.modern-app button, .modern-app input, .modern-app select, .modern-app textarea { font: inherit; }
+.modern-app button { cursor: pointer; }
+.modern-app input, .modern-app textarea, .word-page, .word-page * { user-select: text; }
+.modern-app button:focus-visible, .modern-app a:focus-visible { outline: 2px solid #3b82f6; outline-offset: -2px; }
+.app-icon-button { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 6px; border: 0; border-radius: 5px; background: transparent; color: inherit; flex-shrink: 0; }
+.app-icon-button svg { width: 20px; height: 20px; display: block; }
+.app-icon-button:hover { background: #0000000c; }
+.word-app { display: flex; flex-direction: column; height: 100%; background: #edf1f5; }
+.word-document-bar { background: #185abd; color: white; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+.word-document-bar > span { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+.word-document-bar svg { width: 20px; height: 20px; stroke: currentColor; }
+.word-document-bar small { color: #d7e8ff; font-size: 10px; margin-left: 8px; }
+.word-document-bar button:hover { background: #ffffff25; }
+.word-ribbon-label { background: #f8fafc; padding: 10px 18px 7px; font-weight: 600; font-size: 12px; color: #185abd; }
+.word-ribbon-label span { margin-left: 22px; color: #64748b; font-size: 11px; font-weight: 400; }
+.word-toolbar { display: flex; align-items: center; gap: 5px; padding: 8px 14px; background: #f8fafc; border-bottom: 1px solid #dce2ea; flex-wrap: wrap; flex-shrink: 0; }
+.word-toolbar button { color: #334155; border: 1px solid transparent; }
+.word-toolbar button:hover { background: #e3ebf7; border-color: #cbd8ec; }
+.word-toolbar select { height: 30px; border: 1px solid #cbd5e1; border-radius: 4px; padding: 0 6px; color: #334155; background: white; font-size: 12px; max-width: 130px; }
+.word-toolbar input[type=color] { width: 30px; height: 30px; padding: 3px; border: 1px solid #cbd5e1; background: white; border-radius: 4px; }
+.word-content { flex: 1; min-height: 0; padding: 24px; overflow: auto; background: #e9edf2; }
+.word-page { box-sizing: border-box; width: 210mm; min-height: 297mm; margin: 0 auto; padding: 23mm 22mm; background: white; box-shadow: 0 2px 12px #23354b20; outline: none; font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.65; color: #243247; overflow-wrap: break-word; }
+.word-page * { font-family: inherit; }
+.word-page h1 { font-size: 25pt; font-weight: 600; line-height: 1.15; color: #16395b; margin: 0 0 12px; }
+.word-page .document-subtitle { color: #6a7b8d; font-size: 11pt; border-bottom: 1px solid #dbe3ec; padding-bottom: 24px; margin-bottom: 30px; }
+.word-page h2 { font-size: 14pt; color: #234e76; margin: 24px 0 10px; }
+.word-page p { margin: 0 0 14px; }
+.word-page ul { padding-left: 22px; margin-bottom: 20px; }
+.word-page li { margin-bottom: 8px; }
+.word-status { display: flex; justify-content: space-between; padding: 7px 16px; border-top: 1px solid #dce2ea; background: #f8fafc; color: #64748b; font-size: 10px; flex-shrink: 0; }
+
+.notes-app { display: flex; height: 100%; background: #fffefb; }
+.notes-sidebar { width: 230px; flex-shrink: 0; background: #f5f3ed; padding: 18px 12px; border-right: 1px solid #e8e4dc; overflow: auto; }
+.notes-heading { display: flex; align-items: center; justify-content: space-between; color: #8b641e; padding: 0 5px; }
+.notes-heading h4 { font-size: 17px; color: #423b2d; }
+.notes-caption { font-size: 11px; color: #8a8171; padding: 4px 5px 18px; }
+.note-item { display: block; width: 100%; padding: 13px 12px; background: transparent; border: 1px solid transparent; border-radius: 8px; margin-bottom: 6px; text-align: left; color: #494338; }
+.note-item b { display: block; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.note-item small { display: block; color: #837a69; font-size: 11px; margin-top: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.note-item:hover { background: #ebe7dd; }
+.note-item.active { background: #f7e6b6; border-color: #ead599; }
+.notes-editor { flex: 1; min-width: 0; display: flex; flex-direction: column; padding: 24px 30px; }
+.notes-meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; font-size: 9px; letter-spacing: .7px; color: #9b8764; padding-bottom: 24px; }
+.notes-meta span { letter-spacing: 0; color: #9b9589; }
+.notes-editor input { width: 100%; border: 0; background: transparent; font-size: 24px; font-weight: 600; color: #3a352c; outline: none; margin-bottom: 20px; }
+.notes-editor textarea { width: 100%; flex: 1; min-height: 100px; border: 0; background: transparent; resize: none; outline: none; color: #635b4d; line-height: 1.9; font-size: 14px; }
+.notes-bottom { padding-top: 14px; font-size: 10px; color: #a29a8b; }
+
+.firefox-app { display: flex; flex-direction: column; height: 100%; background: #faf9fc; color: #25232c; }
+.firefox-tab-strip { background: #e9e7ef; padding: 8px 12px 0; flex-shrink: 0; }
+.firefox-tab-strip > span { display: inline-flex; align-items: center; gap: 8px; padding: 9px 15px; min-width: 195px; background: #faf9fc; border-radius: 7px 7px 0 0; font-size: 11px; }
+.firefox-tab-strip img { width: 16px; height: 16px; }
+.firefox-toolbar { display: flex; align-items: center; padding: 8px 12px; gap: 12px; border-bottom: 1px solid #e5e1ed; flex-shrink: 0; }
+.firefox-nav-btns { display: flex; gap: 3px; }
+.firefox-address { flex: 1; min-width: 0; }
+.firefox-url-bar { width: 100%; border: 1px solid #dfdae7; border-radius: 6px; padding: 9px 14px; background: white; color: #393342; font-size: 12px !important; }
+.firefox-url-bar:focus { outline: 2px solid #a483df; }
+.firefox-content { flex: 1; overflow: auto; }
+.firefox-page { max-width: 840px; padding: 44px 36px; margin: auto; }
+.firefox-brand { display: flex; justify-content: center; align-items: center; gap: 14px; margin-bottom: 26px; }
+.firefox-brand img { width: 62px; height: 62px; }
+.firefox-brand h1 { font-size: 32px; letter-spacing: -1px; }
+.firefox-search { display: flex; align-items: center; gap: 12px; padding: 9px 14px; background: white; border: 1px solid #e1dce9; border-radius: 9px; box-shadow: 0 3px 12px #3020440a; }
+.firefox-search svg { width: 20px; height: 20px; color: #776c88; flex-shrink: 0; }
+.firefox-search input { flex: 1; min-width: 0; border: 0; outline: none; padding: 8px 0; font-size: 13px; background: transparent; color: #25232c; }
+.firefox-search:focus-within { outline: 2px solid #a483df; }
+.firefox-search button { border: 0; background: transparent; display: flex; padding: 5px; border-radius: 4px; }
+.firefox-shortcuts { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin: 28px 0 22px; }
+.firefox-shortcuts a { display: flex; align-items: center; flex-direction: column; gap: 9px; color: #575160; font-size: 11px; text-decoration: none; }
+.firefox-shortcuts a span { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 10px; background: white; border: 1px solid #e7e2ee; font-size: 24px; font-weight: 600; color: #68459b; box-shadow: 0 3px 8px #30204408; }
+.firefox-shortcuts a:hover span { background: #eee7f7; }
+
+.spotify-app { height: 100%; display: grid; grid-template-columns: 210px minmax(0,1fr); grid-template-rows: minmax(0,1fr) 76px; background: #121212; color: #fafafa; }
+.spotify-sidebar { padding: 22px 12px; background: #080808; overflow: auto; }
+.spotify-brand { display: flex; align-items: center; gap: 8px; padding: 0 10px 26px; font-size: 20px; }
+.spotify-brand svg { width: 28px; height: 28px; }
+.spotify-sidebar h4 { display: flex; align-items: center; gap: 9px; padding: 0 10px; margin-bottom: 14px; font-size: 14px; color: #b3b3b3; font-weight: 500; }
+.spotify-sidebar h4 svg { width: 19px; height: 19px; }
+.library-item { display: flex; align-items: center; gap: 10px; width: 100%; padding: 9px; border: 0; border-radius: 5px; text-align: left; color: #ddd; background: transparent; font-size: 14px !important; }
+.library-item:hover, .library-item.selected { background: #252525; }
+.library-item small { display: block; color: #929292; font-size: 12px; margin-top: 5px; }
+.mini-cover { width: 38px; height: 38px; display: grid; place-items: center; flex-shrink: 0; border-radius: 4px; background: linear-gradient(135deg,#50649b,#242a42); }
+.mini-cover svg { width: 22px; height: 22px; stroke: #ffffffb0; }
+.spotify-demo-label { display: block; padding: 24px 10px; color: #6f6f6f; font-size: 11px; line-height: 1.8; }
+.spotify-main { min-width: 0; overflow: auto; padding-bottom: 16px; background: linear-gradient(#233c32,#121212 330px); }
+.spotify-hero { display: flex; align-items: flex-end; gap: 22px; padding: 28px 24px; min-height: 200px; }
+.focus { background: linear-gradient(135deg,#477966,#17352d); }
+.energy { background: linear-gradient(135deg,#b5573e,#4e203e); }
+.calm { background: linear-gradient(135deg,#6268a7,#283350); }
+.playlist-cover { display: grid; place-items: center; width: 128px; height: 128px; flex-shrink: 0; background: #ffffff15; box-shadow: 0 8px 26px #0005; border-radius: 3px; }
+.playlist-cover svg { width: 64px; height: 64px; stroke: #e1f4e9; }
+.spotify-hero h1 { font-size: clamp(24px,3vw,40px); line-height: 1.1; letter-spacing: -1px; margin: 9px 0 12px; }
+.spotify-hero p { font-size: 13px; color: #ffffffa8; margin-bottom: 12px; }
+.spotify-hero small { font-size: 12px; color: #ffffffbc; }
+.spotify-track-heading { display: grid; grid-template-columns: 26px 1fr auto; gap: 10px; padding: 17px 14px 10px; margin: 0 16px 6px; border-bottom: 1px solid #ffffff12; color: #9faaa4; font-size: 12px; }
+.spotify-track { display: flex; align-items: center; gap: 10px; width: calc(100% - 32px); margin: 0 16px; padding: 10px 14px; border: 0; background: transparent; color: #eee; border-radius: 4px; text-align: left; }
+.spotify-track:hover { background: #ffffff12; }
+.spotify-track.selected .track-title { color: #1ed760; }
+.track-num { width: 26px; flex-shrink: 0; color: #999; font-size: 14px; }
+.track-info { flex: 1; }
+.track-title { display: block; font-size: 15px; }
+.track-artist { display: block; font-size: 12px; color: #999; margin-top: 4px; }
+.track-duration { font-size: 13px; color: #aaa; }
+.spotify-player { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 18px; background: #181818; border-top: 1px solid #2b2b2b; }
+.spotify-now { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
+.spotify-now b { display: block; font-size: 14px; font-weight: 500; }
+.spotify-now small { display: block; color: #999; font-size: 11px; margin-top: 4px; }
+.spotify-controls { display: flex; align-items: center; gap: 12px; }
+.spotify-controls button:hover { background: #ffffff18; }
+.spotify-controls .spotify-play { background: #fff; color: #111; border-radius: 50%; width: 34px; height: 34px; }
+.spotify-controls .spotify-play:hover { background: #1ed760; }
+.spotify-player-caption { flex: 1; text-align: right; color: #777; font-size: 11px; }
+@media (max-width: 650px) {
+  .notes-sidebar { width: 170px; }
+  .notes-editor { padding: 18px; }
+  .spotify-app { grid-template-columns: 165px minmax(0,1fr); }
+  .playlist-cover { width: 65px; height: 65px; }
+  .playlist-cover svg { width: 35px; height: 35px; }
+  .spotify-hero { gap: 12px; padding: 20px 16px; }
+  .spotify-player-caption, .word-document-bar small { display: none; }
+}
+
+.firefox-shortcuts img { display: block; width: 32px; height: 32px; object-fit: contain; }
+.word-save-decoration { cursor: default; }
+.word-save-decoration:hover { background: transparent; }
+/* La hoja se ajusta al ancho de la ventana sin recortar el texto. */
+.word-page { width: min(210mm, 100%); min-height: auto; aspect-ratio: 210 / 297; padding: clamp(20px, 8cqw, 83px); }
+@container (max-width: 650px) {
+  .word-content { padding: 12px; }
+  .word-page { font-size: 12px; }
+  .word-page h1 { font-size: 24px; }
+  .word-page h2 { font-size: 17px; }
+  .word-document-bar small { display: none; }
+  .word-toolbar { gap: 3px; padding: 6px; }
+  .notes-sidebar { width: 165px; padding: 12px 8px; }
+  .notes-editor { padding: 18px; }
+  .notes-editor input { font-size: 20px; }
+  .spotify-app { grid-template-columns: 160px minmax(0,1fr); }
+  .spotify-hero { flex-wrap: wrap; padding: 18px; gap: 12px; }
+  .playlist-cover { width: 65px; height: 65px; }
+  .playlist-cover svg { width: 35px; height: 35px; }
+  .spotify-player-caption { display: none; }
+  .firefox-page { padding: 28px 18px; }
+  .firefox-shortcuts { gap: 18px; }
+}
+@container (max-width: 460px) {
+  .notes-app { flex-direction: column; }
+  .notes-sidebar { width: 100%; padding: 8px 12px; max-height: 155px; border-right: 0; border-bottom: 1px solid #e8e4dc; }
+  .notes-caption { display: none; }
+  #notes-list { display: flex; overflow-x: auto; gap: 6px; }
+  .note-item { flex: 0 0 155px; margin: 0; padding: 8px; }
+  .notes-editor { min-height: 180px; padding: 16px; }
+  .notes-meta { padding-bottom: 12px; }
+  .notes-editor input { margin-bottom: 12px; }
+  .notes-editor textarea { font-size: 13px; }
+  .spotify-app { grid-template-columns: minmax(0,1fr); grid-template-rows: auto minmax(140px,1fr) auto; overflow-y: auto; }
+  .spotify-sidebar { padding: 8px; }
+  .spotify-brand { font-size: 16px; padding: 0 4px 8px; }
+  .spotify-brand svg { width: 22px; height: 22px; }
+  .spotify-sidebar h4, .spotify-demo-label { display: none; }
+  #spotify-library { display: flex; gap: 6px; }
+  .library-item { padding: 6px; }
+  .library-item .mini-cover { display: none; }
+  .spotify-hero { min-height: 150px; }
+  .spotify-player { flex-wrap: wrap; padding: 10px; gap: 8px; }
+  .spotify-controls { gap: 4px; }
+  .spotify-now .mini-cover { display: none; }
+  .firefox-toolbar { padding: 6px; gap: 4px; }
+  .firefox-nav-btns { gap: 0; }
+  .firefox-shortcuts { gap: 14px; }
+  .firefox-shortcuts a span { width: 44px; height: 44px; }
+  .firefox-brand img { width: 48px; height: 48px; }
+}

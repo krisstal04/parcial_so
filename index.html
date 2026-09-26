@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini OS - Sistema Operativo</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="app-styles.css">
+</head>
+<body>
+  <!-- ESCRITORIO -->
+  <div id="desktop">
+    <!-- Iconos del escritorio -->
+    <div class="desktop-icons">
+      <div class="icon" ondblclick="openApp('process-manager')">
+        <div class="icon-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+        </div>
+        <span>Procesos</span>
+      </div>
+      <div class="icon" ondblclick="openApp('word')">
+        <div class="icon-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14,2 14,8 20,8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10,9 9,9 8,9"/>
+          </svg>
+        </div>
+        <span>Word</span>
+      </div>
+      <div class="icon" ondblclick="openApp('spotify')">
+        <div class="icon-img">
+          <svg viewBox="0 0 24 24" fill="#1db954">
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.559.3z"/>
+          </svg>
+        </div>
+        <span>Spotify</span>
+      </div>
+      <div class="icon" ondblclick="openApp('firefox')">
+        <div class="icon-img">
+          <img src="assets/firefox.png" alt="" aria-hidden="true">
+        </div>
+        <span>Firefox</span>
+      </div>
+      <div class="icon" ondblclick="openApp('notes')">
+        <div class="icon-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
+        </div>
+        <span>Notas</span>
+      </div>
+      <div class="icon" ondblclick="openApp('calculator')">
+        <div class="icon-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="2" width="16" height="20" rx="2"/>
+            <line x1="8" y1="6" x2="16" y2="6"/>
+            <line x1="8" y1="10" x2="8" y2="10.01"/>
+            <line x1="12" y1="10" x2="12" y2="10.01"/>
+            <line x1="16" y1="10" x2="16" y2="10.01"/>
+            <line x1="8" y1="14" x2="8" y2="14.01"/>
+            <line x1="12" y1="14" x2="12" y2="14.01"/>
+            <line x1="16" y1="14" x2="16" y2="14.01"/>
+            <line x1="8" y1="18" x2="8" y2="18.01"/>
+            <line x1="12" y1="18" x2="12" y2="18.01"/>
+            <line x1="16" y1="18" x2="16" y2="18.01"/>
+          </svg>
+        </div>
+        <span>Calculadora</span>
+      </div>
+      <div class="icon" ondblclick="openApp('terminal-app')">
+        <div class="icon-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="4,17 10,11 4,5"/>
+            <line x1="12" y1="19" x2="20" y2="19"/>
+          </svg>
+        </div>
+        <span>Terminal</span>
+      </div>
+    </div>
+
+    <!-- VENTANAS -->
+    <div id="windows-container"></div>
+
+    <!-- BARRA DE TAREAS -->
+    <div id="taskbar">
+      <button id="start-btn" onclick="toggleStartMenu()">
+        <span class="start-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" rx="1"/>
+          </svg>
+        </span>
+        Inicio
+      </button>
+      <div id="taskbar-apps"></div>
+      <div id="system-tray">
+        <button type="button" id="system-controls" class="tray-indicators" onclick="pmAbrirPanelWifi()" aria-expanded="false" aria-controls="wifi-panel" aria-label="WiFi, sonido y batería" title="WiFi, sonido: 50 %, batería: 100 %">
+          <span class="tray-icon" id="wifi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 8a15 15 0 0 1 18 0M6 12a10 10 0 0 1 12 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg></span>
+          <span class="tray-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4zM15 8a6 6 0 0 1 0 8M18 5a10 10 0 0 1 0 14"/></svg></span>
+          <span class="tray-icon" id="battery" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="7" width="17" height="10" rx="2"/><path d="M22 10v4"/><rect x="5" y="10" width="11" height="4" rx=".5" fill="currentColor" stroke="none"/></svg></span>
+        </button>
+        <div class="tray-datetime">
+          <span id="clock">--:--</span>
+          <span id="taskbar-date">--/--/----</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MENÚ INICIO -->
+    <div id="start-menu" class="hidden">
+      <div class="start-header">
+        <span class="start-brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="9" height="9" rx="1"/><rect x="13" y="2" width="9" height="9" rx="1"/><rect x="2" y="13" width="9" height="9" rx="1"/><rect x="13" y="13" width="9" height="9" rx="1"/></svg>
+        </span>
+        <div><h3>Mini OS</h3><p>Tu escritorio</p></div>
+      </div>
+      <h4 class="start-section-label">Aplicaciones</h4>
+      <div class="start-apps">
+        <button onclick="openApp('process-manager'); toggleStartMenu()">
+          <span class="start-app-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </span>
+          Administrador de Procesos
+        </button>
+        <button onclick="openApp('word'); toggleStartMenu()">
+          <span class="start-app-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14,2 14,8 20,8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10,9 9,9 8,9"/>
+            </svg>
+          </span>
+          Word
+        </button>
+        <button onclick="openApp('spotify'); toggleStartMenu()">
+          <span class="start-app-icon">
+            <svg viewBox="0 0 24 24" fill="#1db954">
+              <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.559.3z"/>
+            </svg>
+          </span>
+          Spotify
+        </button>
+        <button onclick="openApp('firefox'); toggleStartMenu()">
+          <span class="start-app-icon">
+            <img src="assets/firefox.png" alt="" aria-hidden="true">
+          </span>
+          Firefox
+        </button>
+        <button onclick="openApp('notes'); toggleStartMenu()">
+          <span class="start-app-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+          </span>
+          Notas
+        </button>
+        <button onclick="openApp('calculator'); toggleStartMenu()">
+          <span class="start-app-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="2" width="16" height="20" rx="2"/>
+              <line x1="8" y1="6" x2="16" y2="6"/>
+              <line x1="8" y1="14" x2="8" y2="14.01"/>
+              <line x1="12" y1="14" x2="12" y2="14.01"/>
+              <line x1="16" y1="14" x2="16" y2="14.01"/>
+              <line x1="8" y1="18" x2="8" y2="18.01"/>
+              <line x1="12" y1="18" x2="12" y2="18.01"/>
+              <line x1="16" y1="18" x2="16" y2="18.01"/>
+            </svg>
+          </span>
+          Calculadora
+        </button>
+        <button onclick="openApp('terminal-app'); toggleStartMenu()">
+          <span class="start-app-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="4,17 10,11 4,5"/>
+              <line x1="12" y1="19" x2="20" y2="19"/>
+            </svg>
+          </span>
+          Terminal
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <section id="wifi-panel" class="wifi-panel" aria-label="WiFi, sonido y batería" hidden>
+    <header><h2>WiFi</h2><button id="wifi-switch" type="button" role="switch" aria-label="Activar WiFi" aria-checked="true" onclick="pmAlternarWifi()"><span></span></button></header>
+    <div id="wifi-network"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3 8a15 15 0 0 1 18 0M6 12a10 10 0 0 1 12 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg><div><b>RED-5G</b><p id="wifi-network-state">Conectada</p></div></div>
+    <div class="quick-volume" title="Sonido: 50 %"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4zM15 8a6 6 0 0 1 0 8"/></svg><div class="quick-volume-track" role="meter" aria-label="Sonido" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span></span></div><span class="quick-volume-value">50 %</span></div>
+    <footer class="quick-footer"><div class="quick-battery" aria-label="Batería: 100 %"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="7" width="17" height="10" rx="2"/><path d="M22 10v4"/><rect x="5" y="10" width="11" height="4" rx=".5" fill="currentColor" stroke="none"/></svg><span>100 %</span></div><span class="quick-settings" role="img" aria-label="Ajustes" title="Ajustes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 3-.5 2a7.7 7.7 0 0 0-1.7 1L5.3 5.5l-2.5 4.3 1.5 1.4a8 8 0 0 0 0 2l-1.5 1.3 2.5 4.3 2-.5a7.7 7.7 0 0 0 1.7 1l.5 2h5l.5-2a7.7 7.7 0 0 0 1.7-1l2 .5 2.5-4.3-1.5-1.3a8 8 0 0 0 0-2l1.5-1.4-2.5-4.3-2 .5a7.7 7.7 0 0 0-1.7-1l-.5-2h-5Z"/><circle cx="12" cy="12" r="3"/></svg></span></footer>
+  </section>
+  <script src="apps.js"></script>
+  <script src="performance.js"></script>
+  <script src="pcb.js"></script>
+  <script src="wifi.js"></script>
+  <script src="process-manager.js"></script>
+  <script src="desktop.js"></script>
+  <script src="app-views.js"></script>
+  <script src="firefox-pages.js"></script>
+</body>
+</html>
