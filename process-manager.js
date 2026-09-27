@@ -7,6 +7,7 @@ var procesos = [];
 var pidCounter = 1;
 var automatizadoInterval = null;
 const DURACION_CPU_MS = 4000;
+const DURACION_TRANSICION_VISIBLE_MS = 1500;
 const LIMITE_PROCESOS_ACTIVOS = 8;
 const temporizadores = new Set();
 const APLICACIONES_CON_PROCESO = ['word', 'spotify', 'firefox', 'notes', 'calculator', 'terminal-app'];
@@ -34,6 +35,20 @@ function pmFirefoxActividad(activa) {
   actualizarUI();
 }
 function pmTieneTrabajo(p) { return !p.appId || !!p.actividad || (p.appId === 'firefox' && p.navegando); }
+function pmListoParaEjecutar(p) {
+  return p.estado === 'ready' && pmTieneTrabajo(p) && performance.now() >= (p.ejecucionDisponibleDesde || 0);
+}
+
+// Dar tiempo a mostrar Listo en el diagrama, la cola y la tabla antes del despacho.
+function pmReanudarEnListo(proceso) {
+  pmCancelar(proceso.temporizadorReanudacion);
+  proceso.ejecucionDisponibleDesde = performance.now() + DURACION_TRANSICION_VISIBLE_MS;
+  pmCambiarEstado(proceso, 'ready');
+  proceso.temporizadorReanudacion = pmProgramar(() => {
+    proceso.temporizadorReanudacion = null;
+    if (procesos.includes(proceso) && proceso.estado === 'ready') actualizarUI();
+  }, DURACION_TRANSICION_VISIBLE_MS);
+}
 function pmActividadContinua(p) { return p.actividad && p.actividad.tipo === 'continua' || p.appId === 'firefox' && p.navegando; }
 function pmActividadApp(appId, activa, demora = 0) {
   const p = pmProcesoAplicacion(appId);
@@ -110,7 +125,7 @@ function pmCancelar(id) {
 // Cada proceso ocupa un procesador lógico durante su turno.
 function pmIniciarEjecucion(proceso, refrescar = true) {
   const nucleo = pmNucleoLibre();
-  if (proceso.estado !== 'ready' || !pmTieneTrabajo(proceso) || nucleo === null) return;
+  if (!pmListoParaEjecutar(proceso) || nucleo === null) return;
   proceso.esperaPlanificador = false;
   proceso.nucleo = nucleo;
   pmCambiarEstado(proceso, 'running');
@@ -133,6 +148,8 @@ function pmIniciarEjecucion(proceso, refrescar = true) {
 }
 
 function pmFinalizarProceso(proceso) {
+  pmCancelar(proceso.temporizadorReanudacion);
+  pmCancelar(proceso.temporizadorZombi);
   pmCancelar(proceso.temporizadorInactividad);
   proceso.actividad = null;
   pmCancelar(proceso.temporizadorCPU);
@@ -143,8 +160,17 @@ function pmFinalizarProceso(proceso) {
   proceso.tiempoRestante = 0;
   proceso.recursosLiberados = true;
   proceso.codigoSalida = 0;
-  pmCambiarEstado(proceso, proceso.padre && !proceso.padre.resultadoRecogido ? 'zombie' : 'finished');
-  if (proceso.estado === 'zombie') proceso.inicioZombi = performance.now();
+  pmCambiarEstado(proceso, 'finished');
+  // El hijo muestra Finalizado antes de conservarse como resultado pendiente.
+  if (proceso.padre && !proceso.padre.resultadoRecogido) {
+    proceso.temporizadorZombi = pmProgramar(() => {
+      proceso.temporizadorZombi = null;
+      if (!procesos.includes(proceso) || proceso.estado !== 'finished' || proceso.padre.resultadoRecogido) return;
+      pmCambiarEstado(proceso, 'zombie');
+      proceso.inicioZombi = performance.now();
+      actualizarUI();
+    }, DURACION_TRANSICION_VISIBLE_MS);
+  }
 }
 
 // Nombres de procesos simulados
@@ -199,7 +225,7 @@ function pmCrearProceso(padre = null, appId = null) {
 function pmAvanzarEstado() {
   if (pmNucleoLibre() === null) return;
   // Buscar procesos listos para pasar a ejecución
-  const listos = procesos.filter(p => p.estado === 'ready' && pmTieneTrabajo(p));
+  const listos = procesos.filter(pmListoParaEjecutar);
   
   if (listos.length > 0) {
     // Repartir turnos; la prioridad desempata para evitar que una app acapare la CPU.
@@ -243,7 +269,7 @@ function pmBloquearProceso(pid) {
 function pmDesbloquearProceso() {
   const bloqueados = procesos.filter(pmPuedeDesbloquear);
   if (bloqueados.length > 0) {
-    pmCambiarEstado(bloqueados[0], 'ready');
+    pmReanudarEnListo(bloqueados[0]);
     actualizarUI();
   }
 }
@@ -333,6 +359,8 @@ function pmEliminarProceso(pid) {
   if (proceso) {
     pmCancelar(proceso.temporizadorCPU);
     pmCancelar(proceso.temporizadorAdmision);
+    pmCancelar(proceso.temporizadorReanudacion);
+    pmCancelar(proceso.temporizadorZombi);
   }
   procesos = procesos.filter(p => p.pid !== pid);
   actualizarUI();
@@ -366,7 +394,7 @@ function actualizarUI() {
   const controles = [
     ['pm-new', !pmPuedeCrearProceso()],
     ['pm-zombie', !pmPuedeCrearProceso()],
-    ['pm-advance', pmNucleoLibre() === null || !procesos.some(p => p.estado === 'ready' && pmTieneTrabajo(p) || p.estado === 'new')],
+    ['pm-advance', pmNucleoLibre() === null || !procesos.some(p => pmListoParaEjecutar(p) || p.estado === 'new')],
     ['pm-block', !enCPU],
     ['pm-unblock', !bloqueados.some(pmPuedeDesbloquear)]
   ];
