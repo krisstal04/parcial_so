@@ -19,7 +19,7 @@ function pmSincronizarWifi() {
   } else if (p.bloqueoWifi) {
     p.bloqueoWifi = false;
     p.esperaPlanificador = false;
-    pmCambiarEstado(p,'ready');
+    pmReanudarEnListo(p);
   }
 }
 function pmAlternarWifi() {
