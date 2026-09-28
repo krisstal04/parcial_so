@@ -9,7 +9,7 @@ function pmNucleoLibre() {
   return null;
 }
 function pmPlanificarNucleos(soloApps = false, incluirReanudados = true) {
-  const listos = procesos.filter(p=>pmListoParaEjecutar(p) && (incluirReanudados || !p.esperaPlanificador) && (!soloApps || p.appId)).sort((a,b)=>a.turnosRecibidos-b.turnosRecibidos || b.prioridad-a.prioridad || a.pid-b.pid);
+  const listos = procesos.filter(p=>p.estado==='ready' && (incluirReanudados || !p.esperaPlanificador) && pmTieneTrabajo(p) && (!soloApps || p.appId)).sort((a,b)=>a.turnosRecibidos-b.turnosRecibidos || b.prioridad-a.prioridad || a.pid-b.pid);
   for(const p of listos) {
     if(pmNucleoLibre()===null) break;
     pmIniciarEjecucion(p,false);

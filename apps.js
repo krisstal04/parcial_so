@@ -98,7 +98,7 @@ const APPS = {
         <dialog id="pm-block-dialog" class="pm-block-dialog"><h3>Bloquear proceso</h3><div id="pm-block-options"></div><button type="button" onclick="document.getElementById('pm-block-dialog').close()">Cancelar</button></dialog>
         <div id="pm-processes" role="tabpanel" aria-labelledby="pm-tab-processes">
         <div class="pm-toolbar">
-          <button id="pm-new" class="pm-btn pm-btn-primary" title="Máximo 8 procesos activos" onclick="pmCrearProceso()">
+          <button id="pm-new" class="pm-btn pm-btn-primary" title="Máximo 50 procesos registrados" onclick="pmCrearProceso()">
             <span class="pm-btn-icon">${ICONS.plus}</span> Nuevo Proceso
           </button>
           <button id="pm-advance" class="pm-btn pm-btn-success" onclick="pmAvanzarEstado()">
@@ -110,7 +110,7 @@ const APPS = {
           <button id="pm-unblock" class="pm-btn pm-btn-secondary" onclick="pmDesbloquearProceso()">
             <span class="pm-btn-icon">${ICONS.play}</span> Desbloquear
           </button>
-          <button id="pm-zombie" class="pm-btn pm-btn-secondary" title="Máximo 8 procesos activos" onclick="pmCrearZombi()">
+          <button id="pm-zombie" class="pm-btn pm-btn-secondary" title="Máximo 50 procesos registrados" onclick="pmCrearZombi()">
             <span class="pm-btn-icon pm-zombie-icon" aria-hidden="true">${ICONS.zombie}</span> Crear Zombi
           </button>
           <button id="pm-auto" class="pm-btn pm-btn-secondary" onclick="pmAutomatizar()">
