@@ -18,7 +18,7 @@ function openApp(appId) {
     return;
   }
   if (APLICACIONES_CON_PROCESO.includes(appId) && !pmPuedeCrearProceso()) {
-    alert('Se alcanzó el límite de 8 procesos activos. Cierra o finaliza uno para abrir otra aplicación.');
+    alert('Se alcanzó el límite de 50 procesos registrados. Elimina registros o usa Limpiar para continuar.');
     return;
   }
   
